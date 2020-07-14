@@ -1,0 +1,1 @@
+# Herbie Google Pubsub Adapter
