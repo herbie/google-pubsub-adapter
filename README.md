@@ -37,3 +37,5 @@ INSTALLED_APPS = [
 ```
 python manage.py init_pubsub
 ```
+
+An example Django application using this adapter can be found at the [Herbie Sandbox](https://github.com/herbie/sandbox) repository.
