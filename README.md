@@ -56,3 +56,8 @@ To to this run in your `virtual environment`
 
 This will install the needed packages (e.g: `pytest`) to run/test locally the package
 
+### Black Formatter
+
+This package uses [Black](https://github.com/psf/black) as a code formatter. You should run it before 
+pushing the code as the CI pipeline checks against it.
+
