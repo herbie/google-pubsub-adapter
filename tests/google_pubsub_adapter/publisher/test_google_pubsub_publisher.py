@@ -1,10 +1,10 @@
 from unittest import mock
 from unittest.mock import Mock
-from django.test import TestCase
-from google_pubsub_adapter.publisher import GooglePubsubPublisher
+from django.test import SimpleTestCase
+from google_pubsub_adapter.publisher.google_pubsub_publisher import GooglePubsubPublisher
 
 
-class GooglePubsubPublisherTestCase(TestCase):
+class GooglePubsubPublisherTestCase(SimpleTestCase):
 
     @mock.patch('google_pubsub_adapter.publisher.google_pubsub_publisher.PublisherClient')
     @mock.patch('google_pubsub_adapter.publisher.google_pubsub_publisher.JSONRenderer')
@@ -26,7 +26,3 @@ class GooglePubsubPublisherTestCase(TestCase):
 
             mock_publisher.topic_path.assert_called_with('pubsub', 'type')
             mock_publisher.publish.assert_called_with('topic_path', data=serializer_mock.data)
-
-
-
-

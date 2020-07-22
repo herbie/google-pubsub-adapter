@@ -9,15 +9,6 @@ jobs:
   tests:
     name: Tests
     runs-on: ubuntu-latest
-    services:
-      herbie-db:
-        image: postgres:12.1
-        env:
-          POSTGRES_USER: user
-          POSTGRES_PASSWORD: password
-          POSTGRES_DB: herbie_test_db
-        ports:
-        - 5432:5432
     steps:
 
     - name: Checkout working branch
@@ -28,32 +19,17 @@ jobs:
       with:
         python-version: 3.8
 
-    - name: Install PostgreSQL 11 client
+    - name: Install latest versions of pip, setuptools and wheel
       run: |
-        sudo apt-get -yqq install libpq-dev
-
-    - name: Cache requirements
-      uses: actions/cache@v1
-      id: cache
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements-testing.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
+        python -m pip install --upgrade pip setuptools wheel
 
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements-testing.txt
-        pip install wheel
-        python setup.py bdist_wheel
+        python -m pip install -e .
 
     - name: Lint with flake8
       run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flake8
 
     - name: Test with pytest
       run: |

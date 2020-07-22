@@ -20,4 +20,3 @@ class Command(BaseCommand):
         print(names)
         for name in names:
             self._publisher.create_topic(name)
-

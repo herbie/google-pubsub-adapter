@@ -7,6 +7,6 @@ class HerbieGooglePubsubAdapterConfig(AppConfig):
 
     def ready(self):
         from herbie_core.services.message_publisher.registry import Registry
-        from google_pubsub_adapter.publisher import GooglePubsubPublisher
+        from google_pubsub_adapter.publisher.google_pubsub_publisher import GooglePubsubPublisher
 
         Registry.add_publisher(GooglePubsubPublisher())

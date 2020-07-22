@@ -37,5 +37,5 @@ class GooglePubsubPublisher(AbstractPublisher):
 
         try:
             self._publisher.create_topic(topic_path)
-        except AlreadyExists as e:
+        except AlreadyExists:
             self._logger.info(f'Topic {topic} already exists.')
