@@ -7,7 +7,7 @@ from google_pubsub_adapter.publisher.google_pubsub_publisher import GooglePubsub
 
 
 class Command(BaseCommand):
-    help = 'initialize pubsub topics'
+    help = "initialize pubsub topics"
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
