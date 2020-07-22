@@ -36,8 +36,8 @@ jobs:
         python -m pip install -e .[tests]
 
     - name: Check Black
-        run: |
-          black --line-length 119 --check .
+      run: |
+        black --line-length 119 --check .
 
     - name: Lint with flake8
       run: |
