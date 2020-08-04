@@ -1,8 +1,8 @@
 import logging
 
 from django.core.management import BaseCommand
+from herbie_core.services.schema_package import SchemaPackage
 
-from herbie_core.services import SchemaPackage
 from google_pubsub_adapter.publisher.google_pubsub_publisher import GooglePubsubPublisher
 
 

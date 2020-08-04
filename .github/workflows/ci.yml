@@ -28,8 +28,6 @@ jobs:
       with:
         path: ~/.cache/pip
         key: pip-${{ hashFiles('setup.cfg') }}
-        restore-keys: |
-          pip-
 
     - name: Install dependencies
       run: |

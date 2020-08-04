@@ -33,7 +33,6 @@ class GooglePubsubPublisher(AbstractPublisher):
 
     def create_topic(self, topic: str):
         topic_path = self._publisher.topic_path(settings.GCLOUD_PUBSUB_PROJECT_ID, topic)
-
         try:
             self._publisher.create_topic(topic_path)
         except AlreadyExists:
