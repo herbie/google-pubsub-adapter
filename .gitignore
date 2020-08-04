@@ -1,0 +1,10 @@
+/venv/
+/.idea
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+dist
+.eggs
+.tox
+build
+*.egg-info/
