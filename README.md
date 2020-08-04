@@ -11,13 +11,13 @@ The package already provides a Django app that just needs to be registered in th
 1. Run the following
 
 ```
-    pip install google_pubsub_adapter
+    pip install herbie-google-pubsub-adapter
 ```
 
 or add it to your app `requirements.txt` and update them running:
 
 ```
-    pip install -r requirements.txt -U
+    pip install -r requirements.txt
 ```
 
 2. Add the adapter App to `Django Installed Apllications`:
@@ -61,3 +61,6 @@ This will install the needed packages (e.g: `pytest`) to run/test locally the pa
 This package uses [Black](https://github.com/psf/black) as a code formatter. You should run it before 
 pushing the code as the CI pipeline checks against it.
 
+```
+    black --line-length 119 .
+```
